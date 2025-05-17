@@ -47,6 +47,9 @@ app.use("/api/users", userRoutes);
 const reviewRoutes = require("./routes/ReviewCart");
 app.use("/api/reviews", reviewRoutes);
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
+
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
