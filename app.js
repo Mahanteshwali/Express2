@@ -47,9 +47,6 @@ app.use("/api/users", userRoutes);
 const reviewRoutes = require("./routes/ReviewCart");
 app.use("/api/reviews", reviewRoutes);
 
-app.get('/favicon.ico', (req, res) => res.status(204));
-
-
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
@@ -64,11 +61,6 @@ app.use((err, req, res, next) => {
   console.error("Unhandled error:", err.stack);
   res.status(500).json({ message: "Something went wrong!" });
 });
-
-app.use('/api/reviews/_logs', (req, res) => {
-  res.status(404).send('Not found');
-});
-
 
 // Start server
 const PORT = process.env.PORT || 4000;
