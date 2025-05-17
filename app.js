@@ -65,6 +65,11 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong!" });
 });
 
+app.use('/api/reviews/_logs', (req, res) => {
+  res.status(404).send('Not found');
+});
+
+
 // Start server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
